@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, url_for
 
 app = Flask(__name__)
 
@@ -16,8 +16,7 @@ def login():
         print('j')
 
 
-
-@app.route('/user')
+@app.route('/user/')
 def user():
     return 'user index'
 
@@ -37,6 +36,10 @@ def post_show(post_id):
 @app.route('/post/<int:post_id>/<int:year>')
 def post_year_show(post_id, year):
     return 'post id is %d' % (post_id + year)
+
+
+with app.test_request_context():
+    url_for('static', filename='py.jpg')
 
 
 if __name__ == '__main__':

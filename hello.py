@@ -1,4 +1,4 @@
-from flask import Flask, request, url_for
+from flask import Flask, request, url_for, render_template
 
 app = Flask(__name__)
 
@@ -24,7 +24,8 @@ def user():
 # 变量标记
 @app.route('/user/<username>')
 def user_show(username):
-    return 'username is %s' % username
+    # return 'username is %s' % username
+    return render_template('user.html', name=username)
 
 
 # 变量转换为特定类型 int, float, path
@@ -40,6 +41,7 @@ def post_year_show(post_id, year):
 
 with app.test_request_context():
     url_for('static', filename='py.jpg')
+    url_for('static', filename='common.css')
 
 
 if __name__ == '__main__':

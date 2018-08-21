@@ -1,4 +1,4 @@
-from flask import Flask, request, url_for, render_template
+from flask import Flask, request, url_for, render_template, Markup
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ def user():
 @app.route('/user/<username>')
 def user_show(username):
     # return 'username is %s' % username
-    return render_template('user.html', name=username)
+    return render_template('user.html', name=Markup('<strong>%s</strong>') % username)
 
 
 # 变量转换为特定类型 int, float, path

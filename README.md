@@ -52,3 +52,6 @@ lean publish
 * [Python SDK API](https://leancloud.cn/docs/api/python/index.html)
 * [命令行工具详解](https://leancloud.cn/docs/cloud_code_commandline.html)
 * [LeanEngine FAQ](https://leancloud.cn/docs/cloud_code_faq.html)
+
+
+## [Note](./note.md)

@@ -25,3 +25,13 @@ $ pyenv deactivate
 $ pyenv uninstall venv-2.7.11
 ```
 
+## `requirements.txt`
+
+```
+# 产生 requirements.txt 文件
+$ pip freeze > requirements.txt
+
+# 安装包
+$ pip install -r requirements.txt
+```
+

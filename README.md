@@ -22,13 +22,13 @@ $ cd todolist-for-flask
 ### 安装依赖：
 
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ### 启动项目：
 
 ```
-lean up
+$ lean up
 ```
 
 应用即可启动运行：[localhost:3000](http://localhost:3000)
@@ -37,12 +37,12 @@ lean up
 
 部署到预备环境（若无预备环境则直接部署到生产环境）：
 ```
-lean deploy
+$ lean deploy
 ```
 
 将预备环境的代码发布到生产环境：
 ```
-lean publish
+$ lean publish
 ```
 
 ## 相关文档

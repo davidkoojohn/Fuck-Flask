@@ -81,5 +81,8 @@ from flask import render_template
 * `url_for ('user', name='john', _external=True)`
 * `app.add_url_route()`
 
+##### 表单`flask-wtf
+* WTForms支持的HTML标准字段
+* WTForms验证函数
 
 

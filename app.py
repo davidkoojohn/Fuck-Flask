@@ -1,32 +1,19 @@
 # coding: utf-8
 
-from datetime import datetime
-
 from flask import Flask
-from flask import render_template
-from flask_sockets import Sockets
-
-from views.todos import todos_view
+from flask import request
+from flask.ext.script import Manager
 
 app = Flask(__name__)
-sockets = Sockets(app)
-
-# 动态路由
-app.register_blueprint(todos_view, url_prefix='/todos')
+manager = Manager(app)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    user_agent = request.headers.get('User-Agent')
+    return 'browser is %s' % user_agent, 400
 
 
-@app.route('/time')
-def time():
-    return str(datetime.now())
-
-
-@sockets.route('/echo')
-def echo_socket(ws):
-    while True:
-        message = ws.receive()
-        ws.send(message)
+if __name__ == '__main__':
+    manager.run()
+    # app.run(debug=True)

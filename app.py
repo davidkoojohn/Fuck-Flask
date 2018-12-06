@@ -16,11 +16,17 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    name = None
+    form = NameForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = ''
+
     return render_template('index.html',
-                           name='koo',
-                           form=NameForm(),
+                           name=name,
+                           form=form,
                            current_time=datetime.utcnow())
 
 

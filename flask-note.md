@@ -76,5 +76,10 @@ from flask import render_template
 ##### Jinja2
 
 
+##### Link
+
+* `url_for ('user', name='john', _external=True)`
+* `app.add_url_route()`
+
 
 

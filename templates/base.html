@@ -4,11 +4,11 @@
 
 {% block head %}
   {{ super() }}
-  <style>
-    body {
-      background: azure;
-    }
-  </style>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
+type="image/x-icon">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}"
+type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 {% endblock %}
 
 {% block navbar %}
@@ -21,11 +21,11 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">index</a>
+        <a class="navbar-brand" href="{{ url_for('index', _external=True) }}">index</a>
      </div>
      <div class="navbar-collapse collapse">
        <ul class="nav navbar-nav">
-         <li><a href="/">Home</a></li>
+         <li><a href="{{ url_for('index', page=2, _external=True) }}">Home</a></li>
        </ul>
      </div>
    </div>
@@ -36,4 +36,9 @@
   <div class="container">
     {% block page_content %}{% endblock %}
   </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {{ moment.include_moment() }}
 {% endblock %}

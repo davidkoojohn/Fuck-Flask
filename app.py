@@ -1,19 +1,17 @@
 # coding: utf-8
 
 from flask import Flask
-from flask import request
-from flask.ext.script import Manager
+from flask import render_template
+from flask.ext.bootstrap import Bootstrap
 
 app = Flask(__name__)
-manager = Manager(app)
+bootstrap = Bootstrap(app)
 
 
 @app.route('/')
 def index():
-    user_agent = request.headers.get('User-Agent')
-    return 'browser is %s' % user_agent, 400
+    return render_template('index.html', name='koo')
 
 
 if __name__ == '__main__':
-    manager.run()
-    # app.run(debug=True)
+    app.run(debug=True)

@@ -57,7 +57,23 @@ def get_user(id):
     return '<h1>Hello, %s</h1>' % user.name
 ```
 
+##### 渲染模板（render_template）
 
+```
+from flask import render_template
+```
+
+##### 过滤器，`Hello, {{ name|capitalize }}`
+
+1. safe: 渲染值时不转义
+1. capitalize: 把值的首字母转换成大写，其他字母转换成小写
+1. lower: 把值转换成小写形式
+1. upper: 把值转换成大写形式
+1. title: 把值中每个单词的首字母都转换成大写
+1. trim: 把值的首尾空格去掉
+1. striptags: 渲染之前把值中所有的HTML标签都删掉
+
+##### Jinja2
 
 
 

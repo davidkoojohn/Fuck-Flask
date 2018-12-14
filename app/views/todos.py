@@ -1,17 +1,12 @@
 # coding: utf-8
 
-from leancloud import Object
-from leancloud import Query
-from leancloud import LeanCloudError
-from flask import Blueprint
-from flask import request
-from flask import redirect
-from flask import url_for
-from flask import render_template
+from leancloud import Object, Query, LeanCloudError
+from flask import Blueprint, request, redirect, url_for, render_template
 
 
 class Todo(Object):
     pass
+
 
 todos_view = Blueprint('todos', __name__)
 
@@ -25,7 +20,7 @@ def show():
             todos = []
         else:
             raise e
-    return render_template('todos.html', todos=todos)
+    return render_template('todos/todos.html', todos=todos)
 
 
 @todos_view.route('', methods=['POST'])
